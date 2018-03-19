@@ -14,3 +14,7 @@ do
     wget -B /manager/html -T 3 -t 2 http://$u:$p
   done
 done
+
+# Common problems:
+# 1. Either the targets or the tgtPorts file have non-printable symbols, use cat -v to check.
+# 2. The base directory is not set correctly.
