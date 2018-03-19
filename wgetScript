@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Simple bash script
+# Requirements:
+# 1. List of IP addresses or hostnames in a file named targets in the /home directory.
+# 2. List of ports in a file named tgtPorts.
+# Common issues will be listed at the end
+
+for u in $(cat /home/targets)
+do
+  for p in $(cat /home/tgtPorts)
+  do
+    # This is for Apache Tomcat but change the base directory (-B option) to whatever you are looking for 
+    wget -B /manager/html -T 3 -t 2 http://$u:$p
+  done
+done
